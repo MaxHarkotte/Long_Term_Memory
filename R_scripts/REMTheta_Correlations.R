@@ -102,7 +102,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -126,7 +126,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -150,7 +150,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -174,7 +174,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -186,11 +186,15 @@ ggscatter(
 
 t.test(LEFT_muscimol$Total_Energy, LEFT_saline$Total_Energy, paired = TRUE)
 mean(LEFT_muscimol$Total_Energy, na.rm = TRUE)
+sd(LEFT_muscimol$Total_Energy, na.rm = TRUE)
 mean(LEFT_saline$Total_Energy, na.rm = TRUE)
+sd(LEFT_saline$Total_Energy, na.rm = TRUE)
 
 t.test(LEFT_muscimol$Mean_Pwr, LEFT_saline$Mean_Pwr, paired = TRUE)
 mean(LEFT_muscimol$Mean_Pwr, na.rm = TRUE)
+sd(LEFT_muscimol$Mean_Pwr, na.rm = TRUE)
 mean(LEFT_saline$Mean_Pwr, na.rm = TRUE)
+sd(LEFT_saline$Mean_Pwr, na.rm = TRUE)
 
 t.test(LEFT_muscimol$Mean_REM_Duration, LEFT_saline$Mean_REM_Duration, paired = TRUE)
 mean(LEFT_muscimol$Mean_REM_Duration, na.rm = TRUE)
@@ -198,7 +202,9 @@ mean(LEFT_saline$Mean_REM_Duration, na.rm = TRUE)
 
 t.test(LEFT_muscimol$Total_REM_Duration, LEFT_saline$Total_REM_Duration, paired = TRUE)
 mean(LEFT_muscimol$Total_REM_Duration, na.rm = TRUE)
+sd(LEFT_muscimol$Total_REM_Duration, na.rm = TRUE)
 mean(LEFT_saline$Total_REM_Duration, na.rm = TRUE)
+sd(LEFT_saline$Total_REM_Duration, na.rm = TRUE)
 
 
 
@@ -270,7 +276,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -294,7 +300,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -318,7 +324,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -342,7 +348,7 @@ ggscatter(
   cor.coef = TRUE,
   # Add correlation coefficient. see ?stat_cor
   cor.coeff.args = list(
-    method = "pearson",
+    method = "spearman",
     label.x = -0.1,
     label.sep = "\n"
   )
@@ -368,3 +374,10 @@ t.test(RIGHT_muscimol$Total_REM_Duration, RIGHT_saline$Total_REM_Duration, paire
 mean(RIGHT_muscimol$Total_REM_Duration, na.rm = TRUE)
 mean(RIGHT_saline$Total_REM_Duration, na.rm = TRUE)
 
+write.csv(LEFT,
+          file.path(dataPath, "Data/Theta_Behavior_EEGLeft.csv"),
+          row.names = FALSE)
+
+write.csv(RIGHT,
+          file.path(dataPath, "Data/Theta_Behavior_EEGRight.csv"),
+          row.names = FALSE)
